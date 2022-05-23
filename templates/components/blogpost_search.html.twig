@@ -1,0 +1,12 @@
+<div {{ attributes }} class="m-4">
+    <input
+        type="search"
+        name="query"
+        value="{{ query }}"
+        data-action="live#update"
+    >
+
+    {% for blogpost in this.blogposts %}
+        {{ component('blogpost', {'id': blogpost.id}) }}
+    {% endfor %}
+</div>

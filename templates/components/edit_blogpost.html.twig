@@ -1,0 +1,52 @@
+<div{{ attributes }}>
+    <div>
+        <h1>{{ blogpost.title }}</h1>
+
+        <hr>
+
+        <div class="mb-3">
+            <label for="blogpost_title" class="form-label"><h2>Title</h2></label>
+            <div class="input-group">
+                <input
+                    type="text"
+                    data-model="blogpost.title"
+                    data-action="blur->live#update"
+                    class="form-control"
+                    value="{{ blogpost.title }}"
+                    id="blogpost_title"
+                >
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="blogpost_content" class="form-label"><h2>Content</h2></label>
+            <div class="input-group">
+                <textarea
+                    data-model="blogpost.content"
+                    data-action="live#update"
+                    class="form-control"
+                    id="blogpost_content"
+                >{{ blogpost.content }}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-5 p-5 shadow bg-secondary text-light">
+        <h3>{{ blogpost.title }}</h3>
+        {{ blogpost.content }}
+    </div>
+
+    <div class="d-grid gap-2">
+        <button
+            data-action="live#action"
+            data-action-name="save"
+            class="btn btn-primary btn-sm"
+        >
+            Enregistrer les modifications
+        </button>
+    </div>
+
+    {% if isSaved %}
+        <div class="alert alert-success my-4">Enregistrer !</div>
+    {% endif %}
+</div>

@@ -9,3 +9,7 @@ export const app = startStimulusApp(require.context(
 
 // register any custom, 3rd party controllers here
 // app.register('some_controller_name', SomeImportedController);
+import LiveController from '@symfony/ux-live-component';
+import '@symfony/ux-live-component/styles/live.css';
+
+app.register('live', LiveController);
